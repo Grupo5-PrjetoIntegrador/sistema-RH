@@ -72,7 +72,5 @@ public class BasicSecurityConfig {
 	        .httpBasic(withDefaults());
 
 		return http.build();
-
     }
-
 }
