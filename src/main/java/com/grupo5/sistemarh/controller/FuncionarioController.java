@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -22,6 +21,7 @@ import org.springframework.web.server.ResponseStatusException;
 import com.grupo5.sistemarh.model.Funcionario;
 import com.grupo5.sistemarh.repository.FuncionarioRepository;
 import com.grupo5.sistemarh.repository.SetorRepository;
+import com.grupo5.sistemarh.service.FuncionarioService;
 
 import jakarta.validation.Valid;
 
@@ -35,6 +35,9 @@ public class FuncionarioController {
 	
 	@Autowired
 	private SetorRepository setorRepository;
+	
+    @Autowired
+    private FuncionarioService funcionarioService; 
 	
 	@GetMapping
 	public ResponseEntity<List<Funcionario>> getAll(){
@@ -87,5 +90,15 @@ public class FuncionarioController {
 		
 		funcionarioRepository.deleteById(id);
 	}
+	
+    @GetMapping("/{id}/salario")
+    public ResponseEntity<Double> calcularSalario(@PathVariable Long id) {
+        try {
+            double salario = funcionarioService.calcularSalario(id);
+            return ResponseEntity.ok(salario);
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
+    }
 	
 }
