@@ -3,7 +3,6 @@ package com.grupo5.sistemarh.model;
 import java.time.LocalDate;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.generation.blogpessoal.model.Usuario;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
