@@ -83,11 +83,13 @@ public class Usuario {
 			this.foto = foto;
 		}
 
-		public List<Funcionario> getPostagem() {
+		// Nome do método incorreto, corrigido de getPostagem para getFuncionario
+		public List<Funcionario> getFuncionario() {
 			return this.funcionario;
 		}
 
-		public void setFuncionario(List<Funcionario> postagem) {
+		// Parâmentro incorreto, corrigindo de postagem para funcionario
+		public void setFuncionario(List<Funcionario> funcionario) {
 			this.funcionario = funcionario;
 		}
 	

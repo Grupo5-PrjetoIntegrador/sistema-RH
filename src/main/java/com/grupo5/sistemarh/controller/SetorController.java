@@ -31,7 +31,8 @@ public class SetorController {
 	@Autowired
 	private SetorRepository setorRepository;
 
-	@GetMapping
+	// Foram adicionados caminhos específicos a todos os métodos para fins de padronização de todo o projeto
+	@GetMapping("/all")
 	public ResponseEntity<List<Setor>> getAll() {
 		return ResponseEntity.ok(setorRepository.findAll());
 	}
@@ -42,17 +43,17 @@ public class SetorController {
 				.orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
 	}
 
-	@GetMapping("/setor/{nomeSetor}")
+	@GetMapping("/nome-setor/{nomeSetor}")
 	public ResponseEntity<List<Setor>> getByNomeSetor(@PathVariable String nomeSetor) {
 		return ResponseEntity.ok(setorRepository.findAllByNomeSetorContainingIgnoreCase(nomeSetor));
 	}
 
-	@PostMapping
+	@PostMapping("/cadastrar")
 	public ResponseEntity<Setor> post(@Valid @RequestBody Setor setor) {
 		return ResponseEntity.status(HttpStatus.CREATED).body(setorRepository.save(setor));
 	}
 
-	@PutMapping
+	@PutMapping("/atualizar")
 	public ResponseEntity<Setor> put(@Valid @RequestBody Setor setor) {
 		return setorRepository.findById(setor.getId())
 				.map(resposta -> ResponseEntity.status(HttpStatus.OK).body(setorRepository.save(setor)))

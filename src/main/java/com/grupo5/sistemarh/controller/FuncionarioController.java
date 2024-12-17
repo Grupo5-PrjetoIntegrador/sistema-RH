@@ -39,7 +39,8 @@ public class FuncionarioController {
     @Autowired
     private FuncionarioService funcionarioService; 
 	
-	@GetMapping
+ // Foram adicionados caminhos específicos a todos os métodos para fins de padronização de todo o projeto
+	@GetMapping("/all")
 	public ResponseEntity<List<Funcionario>> getAll(){
 		return ResponseEntity.ok(funcionarioRepository.findAll());
 	}
@@ -56,7 +57,7 @@ public class FuncionarioController {
 		return ResponseEntity.ok(funcionarioRepository.findAllByNomeContainingIgnoreCase(nome));
 	}
 	
-	@PostMapping
+	@PostMapping("/cadastrar")
 	public ResponseEntity<Funcionario> post(@Valid @RequestBody Funcionario funcionario){
 		if(setorRepository.existsById(funcionario.getSetor().getId()))
 			return ResponseEntity.status(HttpStatus.CREATED)
@@ -64,7 +65,7 @@ public class FuncionarioController {
 		throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Setor não existe", null);
 	}
 	
-	@PutMapping
+	@PutMapping("/atualizar")
 	public ResponseEntity<Funcionario> put(@Valid @RequestBody Funcionario funcionario){
 		if(funcionarioRepository.existsById(funcionario.getId())) {
 			
