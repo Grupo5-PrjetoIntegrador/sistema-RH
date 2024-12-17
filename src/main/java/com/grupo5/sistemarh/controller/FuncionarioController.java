@@ -21,6 +21,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.grupo5.sistemarh.model.Funcionario;
 import com.grupo5.sistemarh.repository.FuncionarioRepository;
+import com.grupo5.sistemarh.repository.SetorRepository;
 
 import jakarta.validation.Valid;
 
