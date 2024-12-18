@@ -73,7 +73,7 @@ O projeto Gen RH traz em si a implementação de um sistema de cadastro RH com t
 Ao abrir o repositório do projeto, clique no botão **<> Code** e copie o link disponível na opção https e execute o comando **git clone <link-do-repositório-remoto>** ou faça o download e extração da pasta zip. Importe o projeto em sua IDE de escolha e execute o projeto. Com o projeto executando, é possível realizar os testes das funcionalidades utilizando o seu ambiente de teste de APIs de escolha, recomendamos o Insomnia.
 
 ### Remotamente :earth_americas:
-Acesse a url __________, digite um usuário e senhas válidos fornecidos pelo time de desenvolvedores e utilize a aplicação.
+Acesse a url https://sistema-rh-wwxr.onrender.com, digite um usuário e senhas válidos fornecidos pelo time de desenvolvedores e utilize a aplicação.
 
 ### Pré-requisitos :clipboard:
    **Localmente**
