@@ -31,7 +31,6 @@ public class SetorController {
 	@Autowired
 	private SetorRepository setorRepository;
 
-	// Foram adicionados caminhos específicos a todos os métodos para fins de padronização de todo o projeto
 	@GetMapping("/all")
 	public ResponseEntity<List<Setor>> getAll() {
 		return ResponseEntity.ok(setorRepository.findAll());

@@ -2,8 +2,6 @@ package com.grupo5.sistemarh.model;
 
 import java.util.List;
 
-// import org.hibernate.annotations.UpdateTimestamp; // Import não está sendo utilizado
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.CascadeType;
@@ -25,12 +23,10 @@ public class Setor {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	// Mudança da Anotação de @NotNull para @NotBlank, pois a convenção é usar o primeiro para valores númericos e o segundo para Strings
 	@NotBlank(message = "O Atributo Nome do Setor é obrigatório")
 	@Size(min = 2, max = 100, message = "O Atributo Nome do Setor deve conter no mínimo 2 e no maximo 100 caracteres")
 	private String nomeSetor;
-	
-	// Adicão da Collection Funcionário para relação de classes
+
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "setor", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties("setor")
 	private List<Funcionario> funcionario;
@@ -51,7 +47,6 @@ public class Setor {
 		this.nomeSetor = nomeSetor;
 	}
 
-	// Getter e Setter do atributo Collection funcionário
 	public List<Funcionario> getFuncionario() {
 		return funcionario;
 	}

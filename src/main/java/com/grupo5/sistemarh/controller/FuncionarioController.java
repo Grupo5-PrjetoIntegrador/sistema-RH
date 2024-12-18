@@ -39,7 +39,6 @@ public class FuncionarioController {
     @Autowired
     private FuncionarioService funcionarioService; 
 	
- // Foram adicionados caminhos específicos a todos os métodos para fins de padronização de todo o projeto
 	@GetMapping("/all")
 	public ResponseEntity<List<Funcionario>> getAll(){
 		return ResponseEntity.ok(funcionarioRepository.findAll());
