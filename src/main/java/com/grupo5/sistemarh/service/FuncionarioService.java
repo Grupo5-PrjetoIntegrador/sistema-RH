@@ -17,7 +17,7 @@ public class FuncionarioService {
 	                .orElseThrow(() -> new IllegalArgumentException("Funcionário não encontrado"));
 	        
 	        // Cálculo do salário com base nas horas trabalhadas
-	        double salarioHora = funcionario.getSalarioBase() / 200;
+	        double salarioHora = funcionario.getSalarioBase() / 160;
 	        double salarioCalculado = salarioHora * funcionario.getHorasTrabalhadas();
 
 	        // Adicionando bônus
