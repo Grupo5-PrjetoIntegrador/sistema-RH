@@ -20,6 +20,7 @@ import jakarta.validation.constraints.Size;
 
 @Entity
 @Table (name = "tb_usuarios")
+@JsonIgnoreProperties(value={"id"})
 public class Usuario {
 
 		@Id
